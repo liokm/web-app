@@ -1,7 +1,7 @@
 {
   "name": "web-app",
   "version": "0.0.1",
-  "description": "web-app portal",
+  "description": "web-app for portal",
   "main": "index.js",
   "scripts": {
     "test": "mocha-webpack"
@@ -36,6 +36,8 @@
     "postcss-cssnext": "^2.7.0",
     "postcss-loader": "^0.9.1",
     "react": "^15.2.1",
+    "react-dom": "^15.2.1",
+    "react-router": "^2.6.0",
     "react-tap-event-plugin": "^1.0.0",
     "style-loader": "^0.13.1",
     "webpack": "^2.1.0-beta.20"
@@ -49,7 +51,6 @@
     "mocha": "^2.5.3",
     "mocha-jenkins-reporter": "^0.2.3",
     "mocha-webpack": "^0.5.0",
-    "react-dom": "^15.2.1",
     "webpack-dev-server": "^2.1.0-beta.0"
   }
 }
