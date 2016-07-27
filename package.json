@@ -4,6 +4,8 @@
   "description": "web-app for portal",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint src",
+    "start": "webpack-dev-server -w -d --hot --config webpack.config.js --progress --history-api-fallback",
     "test": "mocha-webpack"
   },
   "repository": {
@@ -43,9 +45,13 @@
     "webpack": "^2.1.0-beta.20"
   },
   "devDependencies": {
+    "babel-eslint": "^6.1.2",
     "chai": "^3.5.0",
     "chai-enzyme": "^0.5.0",
     "enzyme": "^2.4.1",
+    "eslint": "^3.1.1",
+    "eslint-plugin-react": "^5.2.2",
+    "html-webpack-plugin": "^2.22.0",
     "jsdom": "^9.4.1",
     "jsdom-global": "^2.0.0",
     "mocha": "^2.5.3",
