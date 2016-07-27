@@ -36,6 +36,7 @@
     "mobx": "^2.4.0",
     "mobx-react": "^3.5.1",
     "postcss-cssnext": "^2.7.0",
+    "postcss-import": "^8.0.2",
     "postcss-loader": "^0.9.1",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
@@ -57,6 +58,7 @@
     "mocha": "^2.5.3",
     "mocha-jenkins-reporter": "^0.2.3",
     "mocha-webpack": "^0.5.0",
+    "postcss-reporter": "^1.4.1",
     "webpack-dev-server": "^2.1.0-beta.0"
   }
 }
