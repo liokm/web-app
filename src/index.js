@@ -1,13 +1,15 @@
+// @flow
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import 'babel-polyfill';
 import { Route, Router, useRouterHistory, IndexRedirect } from 'react-router';
-import { Provider } from 'mobx-react';
+import { Provider, observer } from 'mobx-react';
 import { createHistory } from 'history';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-// import ReportPage from './components/ReportPage';
+import { WindowResizeListener } from 'react-window-resize-listener';
+import uistore from './stores/ui';
+import ReportHome from './components/reports/Home';
+import { findRoot } from './utils';
 
 // For material-ui
 injectTapEventPlugin();
@@ -16,35 +18,14 @@ const browserHistory = useRouterHistory(createHistory)({
   basename: '/Portal'
 });
 
-class DriverHome extends Component {
-  render() {
-    return (
-      <div>Driver Home</div>
-    );
-  }
-}
-
-class ReportHome extends Component {
-  render() {
-    return (
-      <div>Reports Home</div>
-    );
-  }
-}
-
-class Header extends Component {
-  render() {
-    return (
-      <AppBar title='EROAD' />
-    );
-  }
-}
-
 class App extends Component {
+  static propTypes = {
+    children: React.PropTypes.element.isRequired
+  }
   render() {
     return (
       <div>
-        <Header />
+        <WindowResizeListener onResize={uistore.onResize} />
         {this.props.children}
       </div>
     );
@@ -54,12 +35,14 @@ class App extends Component {
 class AppWrapper extends Component {
   render() {
     return (
-      <Provider state={{}}>
+      <Provider uistore={uistore}>
         <MuiThemeProvider>
           <Router history={browserHistory}>
             <Route path='/' component={App}>
-              <IndexRedirect to='/driver/driverhome' />
-              <Route path='driver/driverhome' component={DriverHome} />
+              <IndexRedirect to='report/home' />
+              {/*
+                <Route path='driver/driverhome' component={DriverHome} />
+              */}
               <Route path='report/home' component={ReportHome} />
             </Route>
           </Router>
@@ -69,7 +52,7 @@ class AppWrapper extends Component {
   }
 }
 
-render(<AppWrapper />, document.getElementById('web-app'));
+render(<AppWrapper />, findRoot());
 
 if (module.hot) {
   module.hot.accept();

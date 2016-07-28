@@ -7,7 +7,7 @@ var config = {
   entry: [
     'babel-polyfill',
     path.join(APP_DIR, 'index'),
-  ]
+  ],
   output: {
     path: path.resolve(__dirname, 'dist'),
     // Need a absolute path to work with history api
