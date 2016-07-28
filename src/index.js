@@ -8,6 +8,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { WindowResizeListener } from 'react-window-resize-listener';
 import uistore from './stores/ui';
+import DriverHome from './components/driver/Home';
 import ReportHome from './components/reports/Home';
 import { findRoot } from './utils';
 
@@ -40,9 +41,7 @@ class AppWrapper extends Component {
           <Router history={browserHistory}>
             <Route path='/' component={App}>
               <IndexRedirect to='report/home' />
-              {/*
-                <Route path='driver/driverhome' component={DriverHome} />
-              */}
+              <Route path='driver/driverhome' component={DriverHome} />
               <Route path='report/home' component={ReportHome} />
             </Route>
           </Router>
