@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Route, Router, useRouterHistory, IndexRedirect } from 'react-router';
-import { Provider, observer } from 'mobx-react';
+import { Provider } from 'mobx-react';
 import { createHistory } from 'history';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
